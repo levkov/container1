@@ -46,7 +46,7 @@ RUN wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-ke
     rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
 # -------------------------------C9-----------------------------------------------    
 RUN apt-get update &&\
-    apt-get install -y git && \
+    apt-get install -y git build-essential && \
     git clone https://github.com/c9/core.git /cloud9
 WORKDIR /cloud9
 RUN scripts/install-sdk.sh
