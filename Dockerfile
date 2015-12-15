@@ -23,6 +23,8 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 COPY conf/sshd.conf /etc/supervisor/conf.d/sshd.conf
+
+RUN echo 'root:ContaineR' | chpasswd
 # -----------------------------------Java--------------------------------------
 RUN apt-get update && apt-get install software-properties-common -y && add-apt-repository ppa:webupd8team/java -y &&  apt-get update && \
     echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
