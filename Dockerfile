@@ -44,3 +44,6 @@ RUN wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-ke
     wget -O/etc/apt/sources.list.d/s3tools.list http://s3tools.org/repo/deb-all/stable/s3tools.list && \
     apt-get update && apt-get -y install s3cmd && \
     rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
+# -------------------------------C9-----------------------------------------------    
+RUN apt-get update &&\
+    apt-get install -y curl && curl -L https://raw.githubusercontent.com/c9/install/master/install.sh | bash  
