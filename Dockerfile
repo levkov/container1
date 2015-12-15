@@ -48,3 +48,5 @@ RUN wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-ke
 RUN apt-get update &&\
     apt-get install -y git && \
     git clone https://github.com/c9/core.git /cloud9
+WORKDIR /cloud9
+RUN scripts/install-sdk.sh
