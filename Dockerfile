@@ -47,6 +47,9 @@ RUN wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-ke
 # -----------------------------Dev Tools------------------------------------------
 RUN apt-get update && apt-get -y install lua5.2 golang jython && \ 
     rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
+#--------------------------------Servers------------------------------------------
+RUN apt-get update && apt-get -y install mysql-server-5.5 && \ 
+    rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
 # -------------------------------C9-----------------------------------------------    
 RUN apt-get update &&\
     apt-get install -y build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs
