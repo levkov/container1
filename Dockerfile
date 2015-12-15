@@ -39,3 +39,8 @@ RUN apt-get update && apt-get install software-properties-common -y && add-apt-r
 RUN apt-get update && apt-get install software-properties-common -y && apt-add-repository ppa:ansible/ansible -y && apt-get update && \ 
     apt-get install ansible -y && \
     rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*    
+#--------------------------------S3 Tools-----------------------------------------
+RUN wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-key add - && \
+    wget -O/etc/apt/sources.list.d/s3tools.list http://s3tools.org/repo/deb-all/stable/s3tools.list && \
+    apt-get update && apt-get -y install s3cmd && \
+    rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
