@@ -31,4 +31,7 @@ RUN apt-get update && apt-get install software-properties-common -y && add-apt-r
     echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections && \
     apt-get install oracle-java8-installer -y && \
     rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
-#------------------------------------------------------------------------------    
+#------------------------------------Juju----------------------------------------    
+RUN apt-get update && apt-get install software-properties-common -y && add-apt-repository ppa:juju/stable -y && apt-get update && \
+    apt-get install juju-quickstart -y && \
+    rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
