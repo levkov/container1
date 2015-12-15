@@ -35,3 +35,7 @@ RUN apt-get update && apt-get install software-properties-common -y && add-apt-r
 RUN apt-get update && apt-get install software-properties-common -y && add-apt-repository ppa:juju/stable -y && apt-get update && \
     apt-get install juju-quickstart -y && \
     rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
+#------------------------------------ansible-------------------------------------
+RUN apt-get update && apt-get install software-properties-common -y && apt-add-repository ppa:ansible/ansible -y && apt-get update && \ 
+    apt-get install ansible -y && \
+    rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*    
