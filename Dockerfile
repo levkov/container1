@@ -46,4 +46,5 @@ RUN wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-ke
     rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
 # -------------------------------C9-----------------------------------------------    
 RUN apt-get update &&\
-    apt-get install -y curl && curl -L https://raw.githubusercontent.com/c9/install/master/install.sh | bash  
+    apt-get install -y curl build-essential && \
+    curl -L https://raw.githubusercontent.com/c9/install/master/install.sh | bash  
