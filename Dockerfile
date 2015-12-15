@@ -8,7 +8,8 @@ RUN apt-get update && apt-get upgrade -y &&\
     apt-get install apt-transport-https -y &&\
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 #------------------------------------------------------------------------------
-RUN apt-get install - y supervisor
+RUN apt-get update && apt-get install - y supervisor && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 EXPOSE 9001
 CMD ["/usr/bin/supervisord"]
 # -----------------------------------Java--------------------------------------
