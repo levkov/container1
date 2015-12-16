@@ -46,6 +46,8 @@ RUN wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-ke
     rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
 # -----------------------------Dev Tools------------------------------------------
 RUN apt-get update && apt-get -y install lua5.2 golang jython && \ 
+    apt-get install -y python-pip python-dev bpython && \
+    pip install Flask
     rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
 #--------------------------------Servers------------------------------------------
 RUN apt-get update && apt-get -y install mysql-server-5.5 redis-server && \ 
