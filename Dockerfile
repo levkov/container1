@@ -35,14 +35,6 @@ RUN apt-get update && apt-get install software-properties-common -y && add-apt-r
 RUN apt-get update && apt-get install software-properties-common -y && add-apt-repository ppa:juju/stable -y && apt-get update && \
     apt-get install juju-quickstart -y && \
     rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
-#--------------------------------Cloudera-------------------------------------------
-RUN apt-get update && apt-get install -y curl
-RUN wget http://archive.cloudera.com/director/ubuntu/trusty/amd64/director/cloudera-director.list -O /etc/apt/sources.list.d/cloudera-director.list && \
-    curl -s http://archive.cloudera.com/director/ubuntu/trusty/amd64/director/archive.key | sudo apt-key add -
-RUN apt-get update && \
-    apt-get install cloudera-director-client -y
-RUN cp /usr/lib/cloudera-director/client/aws.reference.conf /root/aws.conf && \
-    rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*    
 #------------------------------------ansible-------------------------------------
 RUN apt-get update && apt-get install software-properties-common -y && apt-add-repository ppa:ansible/ansible -y && apt-get update && \ 
     apt-get install ansible -y && \
