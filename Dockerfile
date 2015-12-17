@@ -44,6 +44,7 @@ RUN wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-ke
     wget -O/etc/apt/sources.list.d/s3tools.list http://s3tools.org/repo/deb-all/stable/s3tools.list && \
     apt-get update && apt-get -y install s3cmd && \
     rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
+EXPOSE 6080    
 # -----------------------------Dev Tools------------------------------------------
 RUN apt-get update && apt-get -y install lua5.2 golang jython git libmysqlclient-dev && \ 
     apt-get install -y python-pip python-dev bpython && \
