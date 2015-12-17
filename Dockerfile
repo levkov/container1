@@ -52,6 +52,8 @@ RUN apt-get update && apt-get -y install lua5.2 golang jython git libmysqlclient
 #--------------------------------Servers------------------------------------------
 RUN apt-get update && apt-get -y install mysql-server-5.5 redis-server && \ 
     rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
+ADD conf/mysql.conf /etc/supervisor/conf.d/    
+ADD conf/redis.conf /etc/supervisor/conf.d/
 # -------------------------------C9-----------------------------------------------    
 RUN apt-get update &&\
     apt-get install -y build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs
