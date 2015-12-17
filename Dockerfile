@@ -48,6 +48,7 @@ RUN wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-ke
 RUN apt-get update && apt-get -y install lua5.2 golang jython git libmysqlclient-dev && \ 
     apt-get install -y python-pip python-dev bpython && \
     pip install Flask boto awscli redis MySQL-python && \
+    pip install rq rq-dashboard rq-scheduler && \
     rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
 #--------------------------------Servers------------------------------------------
 RUN apt-get update && apt-get -y install mysql-server-5.5 redis-server && \ 
