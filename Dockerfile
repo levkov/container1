@@ -65,4 +65,10 @@ RUN git clone https://github.com/c9/core.git /cloud9
 WORKDIR /cloud9
 RUN scripts/install-sdk.sh
 RUN sed -i -e 's_127.0.0.1_0.0.0.0_g' /cloud9/configs/standalone.js 
+
+# ----------------------------Consul-----------------------------------------------
+RUN cd /tmp && wget https://releases.hashicorp.com/consul-template/0.13.0/consul-template_0.13.0_linux_amd64.zip && \
+    unzip consul-template_0.13.0_linux_amd64.zip && mv consul-template /usr/local/bin
+
 ADD conf/cloud9.conf /etc/supervisor/conf.d/
+
