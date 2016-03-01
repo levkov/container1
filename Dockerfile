@@ -65,6 +65,8 @@ RUN git clone https://github.com/c9/core.git /cloud9
 WORKDIR /cloud9
 RUN scripts/install-sdk.sh
 RUN sed -i -e 's_127.0.0.1_0.0.0.0_g' /cloud9/configs/standalone.js
+ADD conf/cloud9.conf /etc/supervisor/conf.d/
+
 # ----------------------------Consul-----------------------------------------------
 RUN apt-get update &&\
     apt-get install -y unzip
@@ -72,5 +74,9 @@ RUN cd /tmp && wget https://releases.hashicorp.com/consul/0.6.3/consul_0.6.3_lin
     unzip consul_0.6.3_linux_amd64.zip && mv consul /usr/local/bin
 RUN cd /tmp && wget https://releases.hashicorp.com/consul-template/0.13.0/consul-template_0.13.0_linux_amd64.zip && \
     unzip consul-template_0.13.0_linux_amd64.zip && mv consul-template /usr/local/bin
-
-ADD conf/cloud9.conf /etc/supervisor/conf.d/
+# ---------------------------Keybox-------------------------------------------------
+RUN cd /opt/ && \
+    wget https://github.com/skavanagh/KeyBox/releases/download/v2.85.01/keybox-jetty-v2.85_01.tar.gz && \
+    tar zxvf keybox-jetty-v2.85_01.tar.gz && \
+    rm -rf keybox-jetty-v2.85_01.tar.gz
+EXPOSE 8443
